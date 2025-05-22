@@ -290,6 +290,10 @@
         return ((compareBottom <= viewBottom) && (compareTop >= viewTop) && $t.is(':visible'));
 
     }
+	function toBengaliDigit(number) {
+		const bengaliDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+		return number.toString().split('').map(d => bengaliDigits[d] || d).join('');
+	}
 
     $(window).scroll(function() {
 
@@ -307,7 +311,7 @@
                     duration: 3000,
                     easing: 'swing',
                     step: function() {
-                        $this.text(Math.ceil(this.Counter));
+                        $this.text(toBengaliDigit(Math.ceil(this.Counter)));
                     }
                 });
             });
